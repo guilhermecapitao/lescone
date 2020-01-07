@@ -15,15 +15,15 @@ $s-device: 480px;
 // Mixin de media-queries
 @mixin d($size) {
   @if $size == l {
-    @media screen and (min-width: #{$l-device}) {
+    @media screen and (min-width: 1200px) {
       @content;
     }
   } @else if $size == m {
-    @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device} - 1) {
+    @media screen and (min-width: 760px) and (max-width: 1199px) {
       @content;
     }
   } @else if $size == s {
-    @media screen and (max-width: #{$m-device} - 1) {
+    @media screen and (max-width: 759px) {
       @content;
     }
   }
@@ -41,7 +41,7 @@ $s-device: 480px;
   @return $result;
 }
 
-//Gera as classes de grid
+// Gera as classes de grid
 
 @for $i from 1 through $cols {
   .grid-#{$i} {
@@ -68,7 +68,7 @@ $s-device: 480px;
   @include grid-structure;
 }
 
-//Gera as classes de offset
+// Gera as classes de offset
 
 @for $i from 1 through $cols {
   .offset-#{$i} {
@@ -115,8 +115,8 @@ $s-device: 480px;
 
 @mixin row {
   position: relative;
-  margin-left: $gutter / 2;
-  margin-right: $gutter / 2;
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
   @include d(s) {
     margin-left: 0px;
     margin-right: 0px;
@@ -127,5 +127,3 @@ $s-device: 480px;
 .row {
   @include row;
 }
-
-
